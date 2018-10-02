@@ -1,33 +1,26 @@
 <div>
-    <p>Produtos da categoria {{categoria.description}}</p>
+    <h1 class="display-4">Categoria|{{categoria.description}}</h1>
 
-<div class="row">
-    <div ng-repeat="pro in produtos" class="col-md-4">
-        <div   class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{pro.img.base64.decode}}" alt="Card image cap">
-            <div class="card-body">
-                <strong><h6   class="card-text">{{pro.description}}</h6></strong><br>
-                Preço: R${{pro.price}}<br>
-                Marca: {{pro.brand}}<br>
-                <button type="button" class="btn btn-primary">Visualizar</button>
-                <button type="button" class="btn btn-success">Add carrinho</button>
-
+    <div class="row">
+        <div ng-repeat="pro in produtos" class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="data:image/jpeg;base64,{{pro.img}}" alt="Card image cap">
+                <div class="card-body">
+                    <strong><h6 class="card-text">{{pro.description}}</h6></strong><br>
+                    <label>Preço: R${{pro.price}}</label><br>
+                    <label> Marca: {{pro.brand}}</label><br>
+                    <button type="button" class="btn btn-primary">Visualizar</button>
+                    <button type="button" class="btn btn-success">Add carrinho</button>
+                </div>
             </div>
-
         </div>
     </div>
-</div>
 
 
-
-
-
-
-
-    <code>
+   <!-- <code>
         <pre>
             {{produtos|json}}
         </pre>
-    </code>
+    </code>-->
 
 </div>

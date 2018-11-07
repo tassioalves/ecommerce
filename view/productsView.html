@@ -9,18 +9,18 @@
                     <strong><h6 class="card-text">{{pro.description}}</h6></strong><br>
                     <label>Preço: R${{pro.price}}</label><br>
                     <label> Marca: {{pro.brand}}</label><br>
-                    <button type="button" class="btn btn-primary">Visualizar</button>
-                    <button type="button" class="btn btn-success">Add carrinho</button>
+                    <a href="#!detalhe/{{pro.id}}" class="btn btn-primary">Visualizar</a>
+                    <button type="button" class="btn btn-success" ng-click="addCarrinho(pro)">Add carrinho</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-   <!-- <code>
-        <pre>
-            {{produtos|json}}
-        </pre>
-    </code>-->
+    <!-- <code>
+         <pre>
+             {{produtos|json}}
+         </pre>
+     </code>-->
 
 </div>

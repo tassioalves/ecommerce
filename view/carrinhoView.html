@@ -1,0 +1,44 @@
+<h1 class="display-4">Carrinho |
+    <small class="display-4">pedido</small>
+</h1>
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th>Foto</th>
+        <th>Descrição</th>
+        <th>Qtde</th>
+        <th>Valor Un.</th>
+        <th>Total</th>
+        <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="produto in carrinho">
+    <tr>
+        <td>
+            <div>
+                <img class="img-fluid" ng-src="data:image/jpeg;base64,{{produto.img}}" style="width: 100px">
+            </div>
+        </td>
+        <td>
+            {{produto.description}}
+        </td>
+        <td>
+            {{produto.qtde}}
+        </td>
+        <td>
+            {{produto.price}}
+        </td>
+        <td>
+            {{produto.qtde*produto.price}}
+        </td>
+        <td>
+            <button class="btn btn-danger" ng-click="removerProdutoDoCarrinho(produto.id)">Remover</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="card-body">
+    <h1 class="display-4">Total: R$ {{total}}</h1>
+    <button class="btn btn-success">Finalizar Compra</button>
+</div>

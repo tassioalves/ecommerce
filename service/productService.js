@@ -7,7 +7,15 @@ angular.module("ecommerce").factory("productService", function ($http) {
         return $http.get(url + "/product/list/" + idCategoria + "/" + pagina);
     };
 
+
+    var _buscarProdutosPorId = function (idProduto) {
+        return $http.get(url + "/product/" + idProduto);
+
+    };
+
     return {
-        buscarProdutosPorIdCategoria: _buscarProdutosPorIdCategoria
+        buscarProdutosPorIdCategoria: _buscarProdutosPorIdCategoria,
+        buscarProdutosPorId: _buscarProdutosPorId
     }
-})
+
+});

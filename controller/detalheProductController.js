@@ -15,7 +15,9 @@ angular.module("ecommerce")
             };
 
             $scope.addCarrinho = function (produto, qtde) {
-                carrinhoService.addProduto(produto, qtde)
+                carrinhoService.addProduto(produto, qtde);
+                $location.url("/carrinho");
+
             };
 
 

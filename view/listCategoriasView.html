@@ -1,0 +1,23 @@
+<h1 class="display-4">Categorias |
+    <small class="display-4">Listagem</small>
+</h1>
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th><h2>Categorias:</h2></th>
+        <th><h2>Ação:</h2></th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="cat in categorias">
+    <tr>
+        <td>
+            {{cat.description}}
+        </td>
+        <td>
+            <button class="btn btn-danger" ng-click="removerProdutoDoCarrinho(produto.id)">Remover</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button class="btn btn-success" ng-click="novaCategory()">Nova</button>

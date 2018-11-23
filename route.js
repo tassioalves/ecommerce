@@ -26,7 +26,24 @@ angular.module("ecommerce").config(["$routeProvider", function ($routeProvider) 
     $routeProvider.when("/signup", {
         templateUrl: "view/loginView.html",
         controller: "loginController"
-    })
+    });
+
+    $routeProvider.when("/cadCategoria", {
+        templateUrl: "view/cadCategoria.html",
+        controller: "cadCategoryController"
+    });
+    $routeProvider.when("/cadProduto", {
+        templateUrl: "view/cadProduto.html",
+        controller: "cadProductController"
+    });
+    $routeProvider.when("/listCategory", {
+        templateUrl: "view/listCategoriasView.html",
+        controller: "listCategoriasController"
+    });
+    $routeProvider.when("/listProduct", {
+        templateUrl: "view/listProdutosView.html",
+        controller: "listProductController"
+    });
 
 
 }]);

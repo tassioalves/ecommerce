@@ -1,0 +1,46 @@
+<h1 class="display-4">Produtos |
+    <small class="display-4">Listagem |</small>
+    <small class="display-4">Cadastro</small>
+</h1>
+<div class="jumbotron">
+    <div class="col-md-6">
+        <div class="form">
+            <div class="form-group ">
+                <h1>Cadastro de Produto</h1>
+                <label>
+                    Descrição:
+                </label>
+                <input type="text" class="form-control" ng-model="produto.description">
+                <label>
+                    Preço:
+                </label>
+                <input type="text" class="form-control" ng-model="produto.price">
+                <label>
+                    Categoria:
+                </label>
+                <select class="custom-select" ng-model="produto.category">
+                    <option selected>Selecione</option>
+                    <option ng-repeat="categ in categoriass" ng-value="categ">{{categ.description}}</option>
+                </select>
+                <label>
+                    Preço da Promoção:
+                </label>
+                <input class="form-control" ng-model="produto.promotionalPrice">
+                <label>
+                    Marca:
+                </label>
+                <input class="form-control" ng-model="produto.brand">
+                <label>
+                    Quantidade:
+                </label>
+                <input class="form-control" ng-model="produto.quantity">
+                <label>
+                    Imagem:
+                </label>
+                <input type="file" class="form-control" ng-model="produto.img" base-sixty-four-input>
+
+            </div>
+            <button class="btn btn-success" ng-click="cadastroDeProduto(produto)">Salvar</button>
+        </div>
+    </div>
+</div>

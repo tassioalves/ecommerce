@@ -4,10 +4,9 @@ angular.module("ecommerce")
 
             $scope.login = function (usuario) {
                 loginService.login(usuario)
-
                     .then(function (response) {
                         var user = response.data;
-                        localStorage.setItem("usuarios", JSON.stringify(user));
+                        localStorage.setItem("usuario", JSON.stringify(user));
                         localStorage.setItem("token", JSON.stringify(user.token));
                         $location.url("/home");
                     })

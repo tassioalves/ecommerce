@@ -12,7 +12,7 @@ angular.module("ecommerce")
                     .catch(function (response) {
                         alert(response.data);
                     })
-            }
+            };
 
             var carregarCategoria = function () {
                 var id = $routeParams.idCategoria;

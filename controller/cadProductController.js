@@ -6,8 +6,8 @@ angular.module("ecommerce")
                 categoryService.listarTodasAsCategorias()
                     .then(function (response) {
                         $scope.categoriass = response.data;
-                    }).catch(function () {
-                    alert("deu errado");
+                    }).catch(function (response) {
+                    alert(response.data;
                 });
             };
 
@@ -15,11 +15,10 @@ angular.module("ecommerce")
                 produto.img = produto.img.base64;
                 productService.cadProduct(produto)
                     .then(function (res) {
-                       // $location.url("/listProduct");
-                        alert("cadastrou")
+                        $location.url("/listProduct");
                     })
                     .catch(function (res) {
-                        alert("nao cadastrou")
+                        alert(res.data)
                     })
             };
 

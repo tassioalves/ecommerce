@@ -16,7 +16,7 @@ angular.module("ecommerce").factory("productService", function ($http) {
             },
             data: produto
         };
-        return $http(requerimentoPost);
+            return $http(requerimentoPost);
     };
 
 

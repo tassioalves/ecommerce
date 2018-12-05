@@ -8,7 +8,7 @@ angular.module("ecommerce")
                         $location.url("/listCategory");
                     })
                     .catch(function (res) {
-                    alert("nao cadastrou")
+                    alert(res.data)
                 })
             };
         });

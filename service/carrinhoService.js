@@ -1,6 +1,6 @@
 angular.module("ecommerce").factory("carrinhoService", function ($http) {
     var carrinho = [];
-
+    var url = "http://ecommerce-cpw.herokuapp.com/rest";
 
     var _addProduto = function (produto, qtde) {
         carrinho = _listarProdutos();
@@ -27,7 +27,7 @@ angular.module("ecommerce").factory("carrinhoService", function ($http) {
 
 
     var _removerProduto = function (id) {
-//Remove o produto do localStorage
+        //Remove o produto do localStorage
         carrinho = _listarProdutos();
 
         for (var i in carrinho) {
@@ -43,19 +43,53 @@ angular.module("ecommerce").factory("carrinhoService", function ($http) {
     };
 
 
-    var _atualizarProduto = function (produto) {
-//Salva o produto no localStorage
-    };
-    var _limparCarrinho = function () {
-//Limpa o localStorage
+    var _finalizarCompra = function (carrinho) {
+        var token = localStorage.getItem("token");
+        var requerimentoPost = {
+            method: "POST",
+            url: url + "/order",
+            headers: {
+                "Authorization": "Bearer " + JSON.parse(token),
+                "Content-Type": "application/json"
+            },
+            data: carrinho
+        };
+        return $http(requerimentoPost);
     };
 
+
+    var _listagemDeCompras = function () {
+        var token = localStorage.getItem("token");
+
+        var requerimentoGet = {
+            method: "GET",
+            url: url + "/order/list/1",
+            headers: {
+                "Authorization": "Bearer " + JSON.parse(token)
+            }
+        };
+        return $http(requerimentoGet);
+    };
+
+    var _detalhesDaCompra = function (idCompra) {
+        var token = localStorage.getItem("token");
+
+        var requerimentoGet = {
+            method: "GET",
+            url: url + "/order/" + idCompra,
+            headers: {
+                "Authorization": "Bearer " + JSON.parse(token)
+            }
+        };
+        return $http(requerimentoGet);
+    };
 
     return {
         addProduto: _addProduto,
         removerProduto: _removerProduto,
         listarProdutos: _listarProdutos,
-        atualizarProduto: _atualizarProduto,
-        limparCarrinho: _limparCarrinho
+        finalizarCompra: _finalizarCompra,
+        listagemDeCompras: _listagemDeCompras,
+        detalhesDaCompra: _detalhesDaCompra
     }
 });

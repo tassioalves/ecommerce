@@ -11,14 +11,14 @@ angular.module("ecommerce").factory("loginService", function ($http) {
 
         var dadosBase64 = window.btoa(usuario.email + ":" + usuario.senha);
 
-        var requerimentoPost = {
+        var requerimentoGet = {
             method: "GET",
             url: url + "/user/login",
             headers: {
                 "Authorization": "Basic " + dadosBase64
             }
         };
-        return $http(requerimentoPost);
+        return $http(requerimentoGet);
     };
 
     return {

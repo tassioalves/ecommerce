@@ -6,7 +6,6 @@ angular.module("ecommerce")
             var carregarCategorias = function () {
                 categoryService.listarTodasAsCategorias()
                     .then(function (response) {
-                        //console.log(response.data);
                         $scope.categorias = response.data;
                     }).catch(function (response) {
                     console.log(response);

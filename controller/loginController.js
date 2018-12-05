@@ -8,10 +8,19 @@ angular.module("ecommerce")
                         var user = response.data;
                         localStorage.setItem("usuario", JSON.stringify(user));
                         localStorage.setItem("token", JSON.stringify(user.token));
-                        $location.url("/home");
+                        if (localStorage.getItem("finalizarCompra")) {
+                            localStorage.removeItem("finalizarCompra");
+                            $location.url("/carrinhoDados");
+
+                        } else {
+                            $location.url("/home");
+                        }
                     })
                     .catch(function (response) {
-                        alert(response.data);
+                        usuario.email = null;
+                        usuario.senha = null;
+                        $scope.falha = true;
+                        $scope.textFalha = " E-mail ou senha incorretos!"
                     })
             };
 
@@ -21,11 +30,11 @@ angular.module("ecommerce")
                         $location.url("/home");
                     })
                     .catch((function () {
-                        alert("Usuario ja existe!");
-                        user.name = "";
-                        user.email = "";
-                        user.password = "";
-
+                        user.name = null;
+                        user.email = null;
+                        user.password = null;
+                        $scope.falha = true;
+                        $scope.textFalha = "Usuário já cadastrado!"
                     }))
             }
         });

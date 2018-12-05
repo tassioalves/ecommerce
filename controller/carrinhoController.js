@@ -1,6 +1,6 @@
 angular.module("ecommerce")
     .controller("carrinhoController",
-        function ($scope, carrinhoService) {
+        function ($scope, carrinhoService, $location) {
 
             var listarProdutosDoCarrinho = function () {
                 $scope.carrinho = carrinhoService.listarProdutos();
@@ -16,7 +16,17 @@ angular.module("ecommerce")
                 $scope.produto = carrinhoService.removerProduto(id);
                 listarProdutosDoCarrinho();
 
-            }
+            };
+
+            $scope.finalizarCompra = function () {
+                var user = localStorage.getItem("usuario");
+                if (user) {
+                    $location.url("/carrinhoDados")
+                } else {
+                    localStorage.setItem("finalizarCompra","finalizarcompra");
+                    $location.url("/signup");
+                }
+            };
 
 
             listarProdutosDoCarrinho();
